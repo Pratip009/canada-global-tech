@@ -1,10 +1,21 @@
+import IndustryHero from "@/components/Industry/IndustryHero";
+import CollaborationTools from "@/components/process/CollaborationTools";
+import ProcessLayout from "@/components/process/ProcessSections";
+import ProjectCommunicationStructure from "@/components/process/ProjectCommunicationStructure";
+
 export default function OurProcessPage() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">Our Process</h1>
-      <p className="text-gray-700">
-        This is the Our Process page for the company.
-      </p>
-    </div>
+    <main>
+      <IndustryHero
+        backgroundImage="/process/process.webp"
+        smallHeader="Home / Company / Our Process"
+        titleMain="Unmatched Software Expertise"
+        titleHighlight="guided by Excellence"
+        description="Empower your business with tailored, impactful, and innovative solutions"
+      />
+      <ProcessLayout/>
+      <ProjectCommunicationStructure/>
+      <CollaborationTools/>
+    </main>
   );
 }

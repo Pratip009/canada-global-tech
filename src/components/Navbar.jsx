@@ -1,26 +1,23 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import ServicesDropdown from "./ServicesDropdown";
-import TechnologiesDropdown from "./TechnologiesDropdown";
 import IndustriesDropdown from "./IndustriesDropdown";
 import ResourcesDropdown from "./ResourcesDropdown";
 import CompanyDropdown from "./CompanyDropdown";
 import { FiSearch } from "react-icons/fi";
-
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { FaCanadianMapleLeaf } from "react-icons/fa";
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isTechOpen, setIsTechOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isCompanyOpen, setIsCompanyOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
 
-  const navLinks = [
-    { name: "Case Studies", href: "/case-studies" },
-    
-  ];
+  const navLinks = [{ name: "Case Studies", href: "/case-studies" }];
 
   // Show navbar only when at top
   useEffect(() => {
@@ -35,34 +32,37 @@ export default function Navbar() {
     <nav className="w-full bg-transparent z-50 absolute top-12 left-0">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-white">
-          Canada Global Tech
+        <Link
+          href="/"
+          className="flex items-center gap-2 group transition-all duration-300"
+        >
+          {/* Maple Leaf Icon */}
+          <FaCanadianMapleLeaf className="text-red-500 text-3xl group-hover:rotate-12 transition-transform duration-300" />
+
+          {/* Stylish Text */}
+          <span className="text-2xl font-semibold bg-gradient-to-r from-gray-200 to-gray-400 bg-clip-text text-transparent font-[Poppins]">
+            Canada <span className="text-red-500 font-bold">Global Tech</span>
+          </span>
         </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
           {/* Services */}
-          
           <div
             className="relative"
             onMouseEnter={() => setIsServicesOpen(true)}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
-            <button className="text-white font-medium flex items-center">
+            <button className="text-white font-medium flex items-center gap-1">
               Services
+              <MdKeyboardArrowDown
+                size={20}
+                className={`transition-transform duration-300 ${
+                  isServicesOpen ? "rotate-180 text-yellow-400" : ""
+                }`}
+              />
             </button>
             <ServicesDropdown isOpen={isServicesOpen} isMobile={false} />
-          </div>
-          {/* Technologies */}
-          <div
-            className="relative"
-            onMouseEnter={() => setIsTechOpen(true)}
-            onMouseLeave={() => setIsTechOpen(false)}
-          >
-            <button className="text-white font-medium flex items-center">
-              Technologies
-            </button>
-            <TechnologiesDropdown isOpen={isTechOpen} isMobile={false} />
           </div>
 
           {/* Industries */}
@@ -71,8 +71,14 @@ export default function Navbar() {
             onMouseEnter={() => setIsIndustriesOpen(true)}
             onMouseLeave={() => setIsIndustriesOpen(false)}
           >
-            <button className="text-white font-medium flex items-center">
+            <button className="text-white font-medium flex items-center gap-1">
               Industries
+              <MdKeyboardArrowDown
+                size={20}
+                className={`transition-transform duration-300 ${
+                  isIndustriesOpen ? "rotate-180 text-yellow-400" : ""
+                }`}
+              />
             </button>
             <IndustriesDropdown isOpen={isIndustriesOpen} isMobile={false} />
           </div>
@@ -83,8 +89,14 @@ export default function Navbar() {
             onMouseEnter={() => setIsResourcesOpen(true)}
             onMouseLeave={() => setIsResourcesOpen(false)}
           >
-            <button className="text-white font-medium flex items-center">
+            <button className="text-white font-medium flex items-center gap-1">
               Resources
+              <MdKeyboardArrowDown
+                size={20}
+                className={`transition-transform duration-300 ${
+                  isResourcesOpen ? "rotate-180 text-yellow-400" : ""
+                }`}
+              />
             </button>
             <ResourcesDropdown isOpen={isResourcesOpen} isMobile={false} />
           </div>
@@ -95,8 +107,14 @@ export default function Navbar() {
             onMouseEnter={() => setIsCompanyOpen(true)}
             onMouseLeave={() => setIsCompanyOpen(false)}
           >
-            <button className="text-white font-medium flex items-center">
+            <button className="text-white font-medium flex items-center gap-1">
               Company
+              <MdKeyboardArrowDown
+                size={20}
+                className={`transition-transform duration-300 ${
+                  isCompanyOpen ? "rotate-180 text-yellow-400" : ""
+                }`}
+              />
             </button>
             <CompanyDropdown isOpen={isCompanyOpen} isMobile={false} />
           </div>
@@ -145,7 +163,9 @@ export default function Navbar() {
               className="w-full flex justify-between items-center text-white font-medium mb-2"
               onClick={() => setIsServicesOpen(!isServicesOpen)}
             >
-              Services
+              <span className="flex items-center gap-1">
+                Services <MdKeyboardArrowDown size={20} />
+              </span>
               <span>{isServicesOpen ? "-" : "+"}</span>
             </button>
             <ServicesDropdown
@@ -155,25 +175,15 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Technologies */}
-          <div>
-            <button
-              className="w-full flex justify-between items-center text-white font-medium mb-2"
-              onClick={() => setIsTechOpen(!isTechOpen)}
-            >
-              Technologies
-              <span>{isTechOpen ? "-" : "+"}</span>
-            </button>
-            <TechnologiesDropdown isOpen={isTechOpen} isMobile />
-          </div>
-
           {/* Industries */}
           <div>
             <button
               className="w-full flex justify-between items-center text-white font-medium mb-2"
               onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
             >
-              Industries
+              <span className="flex items-center gap-1">
+                Industries <MdKeyboardArrowDown size={20} />
+              </span>
               <span>{isIndustriesOpen ? "-" : "+"}</span>
             </button>
             <IndustriesDropdown isOpen={isIndustriesOpen} isMobile />
@@ -185,7 +195,9 @@ export default function Navbar() {
               className="w-full flex justify-between items-center text-white font-medium mb-2"
               onClick={() => setIsResourcesOpen(!isResourcesOpen)}
             >
-              Resources
+              <span className="flex items-center gap-1">
+                Resources <MdKeyboardArrowDown size={20} />
+              </span>
               <span>{isResourcesOpen ? "-" : "+"}</span>
             </button>
             <ResourcesDropdown isOpen={isResourcesOpen} isMobile />
@@ -197,7 +209,9 @@ export default function Navbar() {
               className="w-full flex justify-between items-center text-white font-medium mb-2"
               onClick={() => setIsCompanyOpen(!isCompanyOpen)}
             >
-              Company
+              <span className="flex items-center gap-1">
+                Company <MdKeyboardArrowDown size={20} />
+              </span>
               <span>{isCompanyOpen ? "-" : "+"}</span>
             </button>
             <CompanyDropdown isOpen={isCompanyOpen} isMobile />

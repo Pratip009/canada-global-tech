@@ -1,13 +1,14 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { X, ChevronDown, ChevronUp } from "lucide-react";
+import { FiArrowUpRight } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 
 export default function ServicesDropdown({ isOpen, onClose }) {
   const router = useRouter();
   const [hovered, setHovered] = useState(null);
-  const [active, setActive] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
   const [timeoutId, setTimeoutId] = useState(null);
   const [canScrollUp, setCanScrollUp] = useState(false);
   const [canScrollDown, setCanScrollDown] = useState(false);
@@ -59,11 +60,6 @@ export default function ServicesDropdown({ isOpen, onClose }) {
       ],
     },
     {
-      name: "IT Consulting & Advisory",
-      color: "from-emerald-400 via-green-500 to-lime-500",
-      subItems: ["IT Staff Augmentation"],
-    },
-    {
       name: "Digital Strategy",
       color: "from-purple-400 via-violet-500 to-indigo-500",
       subItems: ["Digital Marketing", "SEO Marketing Services"],
@@ -78,15 +74,13 @@ export default function ServicesDropdown({ isOpen, onClose }) {
         "Quantum Readiness",
       ],
     },
-    {
-      name: "Enterprise Solutions",
-      color: "from-orange-400 via-amber-500 to-yellow-500",
-      subItems: ["ERP Systems", "CRM Integration", "Process Automation"],
-    },
   ];
 
   const formatSlug = (str) =>
-    str?.toLowerCase().trim().replace(/[^a-z0-9]+/g, "-");
+    str
+      ?.toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-");
 
   const handleNav = (url) => {
     onClose?.();
@@ -96,12 +90,17 @@ export default function ServicesDropdown({ isOpen, onClose }) {
   const handleMouseEnter = (index) => {
     if (timeoutId) clearTimeout(timeoutId);
     setHovered(index);
-    setActive(index);
+    setActiveIndex(index);
   };
 
   const handleMouseLeave = () => {
     const id = setTimeout(() => setHovered(null), 300);
     setTimeoutId(id);
+  };
+
+  const toggleSubmenu = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+    setHovered(activeIndex === index ? null : index);
   };
 
   const checkScroll = () => {
@@ -117,6 +116,22 @@ export default function ServicesDropdown({ isOpen, onClose }) {
     if (el) el.addEventListener("scroll", checkScroll);
     return () => el?.removeEventListener("scroll", checkScroll);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    };
+  }, [isOpen]);
 
   const scrollSmooth = (dir) => {
     if (!scrollRef.current) return;
@@ -134,19 +149,15 @@ export default function ServicesDropdown({ isOpen, onClose }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="relative mx-auto w-[90vw] max-w-6xl h-[90vh]
-                     rounded-3xl border border-white/10 
-                     bg-gradient-to-br from-gray-950/95 via-gray-900/90 to-gray-950/95 
-                     backdrop-blur-2xl shadow-[0_0_60px_rgba(0,0,0,0.6)] overflow-hidden"
+          className="fixed left-0 top-0 z-[9999] w-full h-full md:left-1/2 md:-translate-x-1/2 md:top-[100px] md:w-[90vw] md:max-w-6xl md:max-h-[80vh] md:mt-6 md:rounded-3xl border border-white/10 bg-gradient-to-br from-gray-950/95 via-gray-900/90 to-gray-950/95 backdrop-blur-2xl shadow-[0_0_60px_rgba(0,0,0,0.6)] overflow-hidden"
         >
-          {/* Glow Shadow */}
+          {/* Glow Shadow (Desktop Only) */}
           <motion.div
-            className={`absolute inset-0 pointer-events-none transition-all duration-700 
-              ${
-                hovered !== null
-                  ? `bg-gradient-to-br ${servicesLinks[hovered].color}`
-                  : "bg-transparent"
-              }`}
+            className={`absolute inset-0 pointer-events-none transition-all duration-700 md:block hidden ${
+              hovered !== null
+                ? `bg-gradient-to-br ${servicesLinks[hovered]?.color}`
+                : "bg-transparent"
+            }`}
             animate={{
               opacity: hovered !== null ? 0.15 : 0,
               scale: hovered !== null ? 1.05 : 1,
@@ -154,8 +165,8 @@ export default function ServicesDropdown({ isOpen, onClose }) {
           />
 
           {/* Header */}
-          <div className="flex justify-between items-center px-8 py-5 border-b border-white/10 relative z-10">
-            <h2 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400">
+          <div className="flex justify-between items-center px-6 py-5 border-b border-white/10 relative z-10">
+            <h2 className="text-xl md:text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-400">
               Explore Our Services
             </h2>
             <button
@@ -167,12 +178,61 @@ export default function ServicesDropdown({ isOpen, onClose }) {
           </div>
 
           {/* Main Content */}
-          <div className="flex h-full relative z-10" onMouseLeave={handleMouseLeave}>
-            {/* Left column */}
-            <div className="w-1/3 border-r border-white/10 p-8 flex flex-col relative overflow-hidden">
+          <div
+            className="flex flex-col md:flex-row h-[calc(100%-80px)] md:max-h-[calc(80vh-80px)] relative z-10"
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* Mobile Layout (Accordion) */}
+            <div className="md:hidden px-6 py-5 space-y-4 overflow-y-auto max-h-[calc(100vh-80px)]">
+              {servicesLinks.map((service, index) => (
+                <div key={index}>
+                  <button
+                    onClick={() => toggleSubmenu(index)}
+                    className="w-full flex justify-between items-center py-2 text-base font-semibold text-left text-gray-300 hover:text-yellow-400"
+                  >
+                    {service.name}
+                    {activeIndex === index ? (
+                      <ChevronUp size={18} />
+                    ) : (
+                      <ChevronDown size={18} />
+                    )}
+                  </button>
+                  <AnimatePresence>
+                    {activeIndex === index && (
+                      <motion.ul
+                        initial={{ opacity: 0, height: 0 }}
+                        animate= {{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="bg-black/30 rounded-xl border border-white/10 p-3 ml-2 space-y-2"
+                      >
+                        {service.subItems.map((item, i) => (
+                          <li key={i}>
+                            <button
+                              onClick={() =>
+                                handleNav(
+                                  `/services/${formatSlug(service.name)}/${formatSlug(item)}`
+                                )
+                              }
+                              className="group flex justify-between items-center text-sm text-gray-300 hover:text-white transition-all w-full text-left"
+                            >
+                              <span>{item}</span>
+                              <FiArrowUpRight className="text-yellow-400 opacity-0 group-hover:opacity-100 transition" />
+                            </button>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:flex w-1/3 border-r border-white/10 p-8 flex-col relative overflow-hidden">
               <div
                 ref={scrollRef}
-                className="overflow-y-auto scrollbar-hide flex flex-col space-y-4"
+                className="overflow-y-auto scrollbar-hide flex flex-col space-y-4 max-h-full"
                 style={{
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
@@ -182,27 +242,27 @@ export default function ServicesDropdown({ isOpen, onClose }) {
                   <motion.button
                     key={index}
                     onMouseEnter={() => handleMouseEnter(index)}
-                    onClick={() => handleNav(`/services/${formatSlug(item.name)}`)}
+                    onClick={() =>
+                      handleNav(`/services/${formatSlug(item.name)}`)
+                    }
                     whileHover={{ scale: 1.03, x: 5 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                    className={`relative text-left text-lg font-semibold py-3 px-4 rounded-xl transition-all duration-300 tracking-wide
-                      ${
-                        active === index
-                          ? `bg-gradient-to-r ${item.color} text-white shadow-[0_0_25px_rgba(255,255,255,0.1)]`
-                          : "text-gray-300 hover:text-white hover:bg-white/5"
-                      }`}
+                    className={`relative text-left text-lg font-semibold py-3 px-4 rounded-xl transition-all duration-300 tracking-wide ${
+                      activeIndex === index
+                        ? `bg-gradient-to-r ${item.color} text-white shadow-[0_0_25px_rgba(255,255,255,0.1)]`
+                        : "text-gray-300 hover:text-white hover:bg-white/5"
+                    }`}
                   >
                     {item.name}
                   </motion.button>
                 ))}
               </div>
 
-              {/* Scroll arrows */}
+              {/* Scroll Arrows (Desktop Only) */}
               {canScrollUp && (
                 <button
                   onClick={() => scrollSmooth("up")}
-                  className="absolute top-2 left-1/2 -translate-x-1/2 p-2 rounded-full bg-gray-800/70 
-                             text-white/70 hover:text-white shadow-md transition"
+                  className="absolute top-2 left-1/2 -translate-x-1/2 p-2 rounded-full bg-gray-800/70 text-white/70 hover:text-white shadow-md transition"
                 >
                   <ChevronUp size={18} />
                 </button>
@@ -210,16 +270,15 @@ export default function ServicesDropdown({ isOpen, onClose }) {
               {canScrollDown && (
                 <button
                   onClick={() => scrollSmooth("down")}
-                  className="absolute bottom-2 left-1/2 -translate-x-1/2 p-2 rounded-full bg-gray-800/70 
-                             text-white/70 hover:text-white shadow-md transition"
+                  className="absolute bottom-2 left-1/2 -translate-x-1/2 p-2 rounded-full bg-gray-800/70 text-white/70 hover:text-white shadow-md transition"
                 >
                   <ChevronDown size={18} />
                 </button>
               )}
             </div>
 
-            {/* Right column (Top aligned fix) */}
-            <div className="flex-1 p-10 flex flex-col justify-start items-start overflow-y-auto">
+            {/* Right Column (Desktop Only) */}
+            <div className="hidden md:flex flex-1 p-8 flex-col justify-start items-start overflow-y-auto max-h-full">
               <AnimatePresence mode="wait">
                 {hovered !== null ? (
                   <motion.div
@@ -246,9 +305,10 @@ export default function ServicesDropdown({ isOpen, onClose }) {
                                 )}/${formatSlug(sub)}`
                               )
                             }
-                            className="text-gray-300 hover:text-white text-left transition-all duration-200 font-medium"
+                            className="group flex items-center justify-between text-gray-300 hover:text-white text-left transition-all duration-200 font-medium"
                           >
-                            {sub}
+                            <span>{sub}</span>
+                            <FiArrowUpRight className="opacity-0 group-hover:opacity-100 text-teal-400 transform group-hover:translate-x-1 transition-all duration-300" />
                           </button>
                         </motion.li>
                       ))}
@@ -262,7 +322,7 @@ export default function ServicesDropdown({ isOpen, onClose }) {
                     exit={{ opacity: 0 }}
                     className="text-gray-500 text-lg italic mt-10"
                   >
-                    Hover over a category to explore its services ✨
+                    Hover over a category to explore its services 
                   </motion.div>
                 )}
               </AnimatePresence>

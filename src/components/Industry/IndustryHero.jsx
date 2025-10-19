@@ -36,7 +36,7 @@ export default function IndustryHero({
           )}
 
           <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-6">
-            Custom{" "}
+            
             <span
               className="bg-clip-text text-transparent"
               style={{

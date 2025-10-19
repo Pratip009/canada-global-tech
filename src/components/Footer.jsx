@@ -90,7 +90,7 @@ export default function Footer() {
 
         <div>
           <h3 className="text-white font-bold">Mail us at</h3>
-          <p>hello@unifiedinfotech.net</p>
+          <p>hello@canadaglobaltech.net</p>
         </div>
 
         <div>
@@ -114,10 +114,9 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="max-w-7xl mx-auto px-6 mt-8 border-t border-gray-700 pt-4 text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center">
-        <p>© 2025 Unified Infotech Inc. All rights reserved.</p>
+        <p>© 2025 Canada Global Tech Inc. All rights reserved.</p>
         <div className="flex space-x-4 mt-2 md:mt-0 items-center">
           <p>Privacy Policy</p>
-          
         </div>
       </div>
     </footer>

@@ -4,6 +4,15 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Import React Icons
+import {
+  FaHospital,
+  FaUserMd,
+  FaPills,
+  FaVideo,
+  FaCogs,
+} from "react-icons/fa";
+
 export default function WhoWeHelp() {
   const [activeTab, setActiveTab] = useState("Hospitals and Health Systems");
 
@@ -11,7 +20,7 @@ export default function WhoWeHelp() {
     {
       title: "Hospitals and Health Systems",
       image: "/industry/help1.webp",
-      icon: "🏥",
+      icon: <FaHospital className="text-white text-2xl" />,
       description: `
 Develop tailored enterprise-grade healthcare software to manage complex operations, enhance patient care coordination, and integrate various departmental systems for large-scale medical institutions.
 
@@ -21,7 +30,7 @@ Our platforms also leverage healthcare predictive analytics and AI to optimize h
     {
       title: "Clinics and Private Practices",
       image: "/industry/help2.png",
-      icon: "👩‍⚕️",
+      icon: <FaUserMd className="text-white text-2xl" />,
       description: `
 Boost efficiency for smaller practices with custom solutions for appointment scheduling, patient records, billing, and telemedicine — designed to improve patient flow and reduce administrative overhead. By incorporating HIPAA-compliant AI tools, clinics can securely manage sensitive data while streamlining workflows.
       `,
@@ -29,7 +38,7 @@ Boost efficiency for smaller practices with custom solutions for appointment sch
     {
       title: "Pharmaceutical and Life Sciences",
       image: "/industry/help3.webp",
-      icon: "💊",
+      icon: <FaPills className="text-white text-2xl" />,
       description: `
 Equip your research and operations with specialized software for clinical trial management, pharmacovigilance, drug supply chain logistics, and regulatory compliance tracking. Our advanced solutions apply AI predictive analytics in healthcare to accelerate drug discovery and enhance risk detection.
       `,
@@ -37,7 +46,7 @@ Equip your research and operations with specialized software for clinical trial 
     {
       title: "Telemedicine Providers",
       image: "/industry/help4.webp",
-      icon: "📱",
+      icon: <FaVideo className="text-white text-2xl" />,
       description: `
 Build robust, scalable, and secure virtual care platforms that offer seamless patient-doctor interactions, electronic prescriptions, and integration with existing healthcare ecosystems. Predictive analytics anticipate patient needs and enhance care plans.
       `,
@@ -45,7 +54,7 @@ Build robust, scalable, and secure virtual care platforms that offer seamless pa
     {
       title: "Medical Device Companies",
       image: "/industry/help5.png",
-      icon: "⚙️",
+      icon: <FaCogs className="text-white text-2xl" />,
       description: `
 Create companion software and IoT (IoMT) platforms for your medical devices — enabling remote monitoring, predictive maintenance, and firmware management. Ensure continuous care and reliability with AI-powered analytics.
       `,
@@ -130,7 +139,7 @@ Create companion software and IoT (IoMT) platforms for your medical devices — 
               className="bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-4 mb-5">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-teal-400 to-yellow-400 flex items-center justify-center text-2xl shadow-lg">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-teal-400 to-yellow-400 flex items-center justify-center shadow-lg">
                   {active.icon}
                 </div>
                 <h3 className="text-2xl md:text-3xl font-semibold text-gray-900">

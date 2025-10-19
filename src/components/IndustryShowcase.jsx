@@ -37,7 +37,7 @@ const industries = [
     icon: <Tv size={28} />,
     image: "/showcase/mediaa.jpg",
     description:
-      "Unified Infotech transforms the media & entertainment industry with custom solutions that enhance audience engagement and deliver seamless experiences. By adopting the DevOps methodology, we accelerate time to market, drive growth, and implement cutting-edge technology to meet evolving demands.",
+      "Canada Global Tech transforms the media & entertainment industry with custom solutions that enhance audience engagement and deliver seamless experiences. By adopting the DevOps methodology, we accelerate time to market, drive growth, and implement cutting-edge technology to meet evolving demands.",
     tagline: "Because stories inspire change.",
   },
   {
