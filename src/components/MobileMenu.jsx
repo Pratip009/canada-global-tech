@@ -64,96 +64,107 @@ export default function MobileMenu({ isOpen, setIsOpen }) {
   if (!isOpen) return null;
 
   return (
-    <div className="md:hidden bg-gray-950 text-white border-t border-gray-800 px-6 py-5 space-y-6 overflow-y-auto max-h-[90vh] rounded-t-3xl">
-      {/* Services Dropdown toggle */}
-      <div>
-        <button
-          onClick={() => setServicesOpen(!servicesOpen)}
-          className="w-full flex justify-between items-center text-lg font-semibold text-yellow-400"
-        >
-          Services
-          {servicesOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-        </button>
+    if (!isOpen) return null;
 
-        <AnimatePresence>
-          {servicesOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              className="mt-3 pl-2 border-l border-yellow-500/40 space-y-2"
-            >
-              {services.map((service, index) => (
-                <div key={index}>
-                  {/* Service Header */}
-                  <button
-                    onClick={() => toggleSubmenu(index)}
-                    className="w-full flex justify-between items-center py-2 text-base font-semibold text-left hover:text-yellow-400"
-                  >
-                    {service.name}
-                    {activeIndex === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                  </button>
+return (
+  <div className="fixed inset-0 z-50 bg-gray-950 text-white flex flex-col px-6 py-5 space-y-6 overflow-y-auto">
+    {/* Close area */}
+    <button
+      onClick={() => setIsOpen(false)}
+      className="absolute top-5 right-6 text-gray-400 hover:text-white text-2xl"
+    >
+      ✕
+    </button>
 
-                  {/* Subitems */}
-                  <AnimatePresence>
-                    {activeIndex === index && (
-                      <motion.ul
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.25 }}
-                        className="bg-black/30 rounded-xl border border-white/10 p-3 ml-2 space-y-2"
-                      >
-                        {service.subItems.map((item, i) => (
-                          <li key={i}>
-                            <Link
-                              href={`/services/${formatSlug(service.name)}/${formatSlug(item)}`}
-                              className="flex justify-between items-center text-sm text-gray-300 hover:text-white transition-all"
-                              onClick={() => setIsOpen(false)}
-                            >
-                              <span>{item}</span>
-                              <FiArrowUpRight className="text-yellow-400 opacity-0 group-hover:opacity-100 transition" />
-                            </Link>
-                          </li>
-                        ))}
-                      </motion.ul>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Navigation Links */}
-      <div className="space-y-3">
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            href={link.href}
-            className="block text-gray-300 hover:text-yellow-400 text-base font-medium transition"
-            onClick={() => setIsOpen(false)}
-          >
-            {link.name}
-          </Link>
-        ))}
-      </div>
-
-      {/* Contact Us */}
-      <Link
-        href="/contact"
-        className="block w-full text-center px-4 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition"
-        onClick={() => setIsOpen(false)}
+    {/* Services Dropdown toggle */}
+    <div className="mt-12"> {/* Added top margin to clear close button */}
+      <button
+        onClick={() => setServicesOpen(!servicesOpen)}
+        className="w-full flex justify-between items-center text-lg font-semibold text-yellow-400"
       >
-        Contact Us
-      </Link>
-
-      {/* Search */}
-      <button className="w-full flex justify-center p-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition">
-        <FiSearch size={20} />
+        Services
+        {servicesOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
       </button>
+
+      <AnimatePresence>
+        {servicesOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="mt-3 pl-2 border-l border-yellow-500/40 space-y-2"
+          >
+            {services.map((service, index) => (
+              <div key={index}>
+                <button
+                  onClick={() => toggleSubmenu(index)}
+                  className="w-full flex justify-between items-center py-2 text-base font-semibold text-left hover:text-yellow-400"
+                >
+                  {service.name}
+                  {activeIndex === index ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                </button>
+
+                <AnimatePresence>
+                  {activeIndex === index && (
+                    <motion.ul
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="bg-black/30 rounded-xl border border-white/10 p-3 ml-2 space-y-2"
+                    >
+                      {service.subItems.map((item, i) => (
+                        <li key={i}>
+                          <Link
+                            href={`/services/${formatSlug(service.name)}/${formatSlug(item)}`}
+                            className="flex justify-between items-center text-sm text-gray-300 hover:text-white transition-all"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <span>{item}</span>
+                            <FiArrowUpRight className="text-yellow-400 opacity-0 group-hover:opacity-100 transition" />
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+
+    {/* Navigation Links */}
+    <div className="space-y-3">
+      {navLinks.map((link) => (
+        <Link
+          key={link.name}
+          href={link.href}
+          className="block text-gray-300 hover:text-yellow-400 text-base font-medium transition"
+          onClick={() => setIsOpen(false)}
+        >
+          {link.name}
+        </Link>
+      ))}
+    </div>
+
+    {/* Contact Us */}
+    <Link
+      href="/contact"
+      className="block w-full text-center px-4 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition"
+      onClick={() => setIsOpen(false)}
+    >
+      Contact Us
+    </Link>
+
+    {/* Search */}
+    <button className="w-full flex justify-center p-3 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition">
+      <FiSearch size={20} />
+    </button>
+  </div>
+);
+
   );
 }

@@ -2,12 +2,21 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
+import { useEffect } from "react";
 
-export default function ResourcesDropdown({ isOpen, isMobile = false }) {
+export default function ResourcesDropdown({ isOpen, isMobile = false, onClose }) {
   const resourcesLinks = [
     { name: "Blogs", href: "/resources/blogs" },
     { name: "UI/UX Gallery", href: "/resources/ui-ux-gallery" },
   ];
+
+  // 🧩 Reset behavior when dropdown opens/closes
+  useEffect(() => {
+    if (!isOpen) return;
+    return () => {
+      // optional cleanup if needed in future
+    };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -40,6 +49,7 @@ export default function ResourcesDropdown({ isOpen, isMobile = false }) {
               >
                 <Link
                   href={link.href}
+                  onClick={onClose} // ✅ closes navbar after navigation
                   className="flex items-center justify-between text-gray-300 hover:text-white hover:bg-white/5 
                              py-3 px-5 rounded-xl text-lg font-medium transition-all duration-300 group"
                 >

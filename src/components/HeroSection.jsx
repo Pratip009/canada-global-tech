@@ -97,7 +97,7 @@ export default function HeroSection() {
         }
 
         .animate-bounce-slow {
-          animation: bounce 4s infinite ease-in-out;
+          animation: bounce 4s infinite ease-in-out
         }
       `}</style>
     </section>

@@ -3,7 +3,11 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
-export default function IndustriesDropdown({ isOpen, isMobile = false }) {
+export default function IndustriesDropdown({
+  isOpen,
+  isMobile = false,
+  onClose,
+}) {
   const industries = ["Healthcare", "eLearning"];
 
   return (
@@ -39,6 +43,7 @@ export default function IndustriesDropdown({ isOpen, isMobile = false }) {
                   href={`/industries/${industry.toLowerCase()}`}
                   className="flex items-center justify-between text-gray-300 hover:text-white hover:bg-white/5 
                              py-3 px-5 rounded-xl text-lg font-medium transition-all duration-300 group"
+                  onClick={onClose}
                 >
                   <span>{industry}</span>
                   <FiArrowUpRight className="text-teal-400 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1" />

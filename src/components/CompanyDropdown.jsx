@@ -3,7 +3,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowUpRight } from "react-icons/fi";
 
-export default function CompanyDropdown({ isOpen, isMobile = false }) {
+export default function CompanyDropdown({ isOpen, isMobile = false, onClose }) {
   const companyLinks = [
     { name: "About", href: "/company/about" },
     { name: "Our Process", href: "/company/our-process" },
@@ -40,6 +40,7 @@ export default function CompanyDropdown({ isOpen, isMobile = false }) {
               >
                 <Link
                   href={link.href}
+                  onClick={onClose} // ✅ closes the entire navbar
                   className="flex items-center justify-between text-gray-300 hover:text-white hover:bg-white/5 
                              py-3 px-5 rounded-xl text-lg font-medium transition-all duration-300 group"
                 >
