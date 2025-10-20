@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import TopHeader from "@/components/TopHeader";
+import ScrollToTopButton from "@/components/ScrollToTopButton"; // ✅ new import
 import { Roboto } from "next/font/google";
 import { usePathname } from "next/navigation";
 
@@ -24,6 +25,9 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main>{children}</main>
         <Footer />
+
+        {/* ✅ Scroll-to-top button globally available */}
+        <ScrollToTopButton />
       </body>
     </html>
   );

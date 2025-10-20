@@ -23,9 +23,9 @@ export default function ServicesDropdown({ isOpen, onClose }) {
         "Web App Development",
         "Mobile App Development",
         "Application Modernization",
-        "Blockchain Development",
+
         "Custom Software Development",
-        "SaaS Development",
+
         "E-commerce Development",
         "Testing & Quality Assurance",
       ],
@@ -33,46 +33,22 @@ export default function ServicesDropdown({ isOpen, onClose }) {
     {
       name: "Design & Digital Experience",
       color: "from-pink-400 via-rose-500 to-fuchsia-500",
-      subItems: [
-        "User Research",
-        "Web Design",
-        "UI/UX Design",
-        "IA and UX Design",
-      ],
+      subItems: ["User Research", "Web Design", "UI/UX Design"],
     },
     {
       name: "Cloud Engineering",
       color: "from-cyan-400 via-sky-500 to-blue-500",
-      subItems: [
-        "Cloud Migration",
-        "DevOps",
-        "Cybersecurity",
-        "24/7 Support & Maintenance",
-      ],
+      subItems: ["DevOps", "24/7 Support & Maintenance"],
     },
     {
       name: "Data & Analytics",
       color: "from-amber-400 via-orange-500 to-red-500",
-      subItems: [
-        "Data Engineering",
-        "Analytics & Visualization",
-        "AI & Machine Learning",
-      ],
+      subItems: ["Analytics & Visualization", "AI & Machine Learning"],
     },
     {
       name: "Digital Strategy",
       color: "from-purple-400 via-violet-500 to-indigo-500",
       subItems: ["Digital Marketing", "SEO Marketing Services"],
-    },
-    {
-      name: "Emerging Technologies",
-      color: "from-teal-400 via-cyan-500 to-sky-500",
-      subItems: [
-        "IoT Solutions",
-        "AR/VR Development",
-        "Edge Computing",
-        "Quantum Readiness",
-      ],
     },
   ];
 
@@ -201,7 +177,7 @@ export default function ServicesDropdown({ isOpen, onClose }) {
                     {activeIndex === index && (
                       <motion.ul
                         initial={{ opacity: 0, height: 0 }}
-                        animate= {{ opacity: 1, height: "auto" }}
+                        animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
                         className="bg-black/30 rounded-xl border border-white/10 p-3 ml-2 space-y-2"
@@ -211,7 +187,9 @@ export default function ServicesDropdown({ isOpen, onClose }) {
                             <button
                               onClick={() =>
                                 handleNav(
-                                  `/services/${formatSlug(service.name)}/${formatSlug(item)}`
+                                  `/services/${formatSlug(
+                                    service.name
+                                  )}/${formatSlug(item)}`
                                 )
                               }
                               className="group flex justify-between items-center text-sm text-gray-300 hover:text-white transition-all w-full text-left"
@@ -322,7 +300,7 @@ export default function ServicesDropdown({ isOpen, onClose }) {
                     exit={{ opacity: 0 }}
                     className="text-gray-500 text-lg italic mt-10"
                   >
-                    Hover over a category to explore its services 
+                    Hover over a category to explore its services
                   </motion.div>
                 )}
               </AnimatePresence>

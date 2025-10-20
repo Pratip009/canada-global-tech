@@ -12,6 +12,7 @@ import WebsiteProcessSection from "@/components/Software-engineering/website-dev
 import DigitalChangeCTA from "@/components/DigitalChangeCTA";
 import WebsiteProcessProgress from "@/components/Software-engineering/website-development/WebsiteProcessProgress";
 import WebsiteFaqSection from "@/components/Software-engineering/website-development/WebsiteFaqSection";
+import ContactSection from "@/components/ContactSection";
 export default function Page() {
   return (
     <main>
@@ -33,6 +34,7 @@ export default function Page() {
       <DigitalChangeCTA />
       <WebsiteProcessProgress />
       <WebsiteFaqSection />
+      <ContactSection/>
     </main>
   );
 }
