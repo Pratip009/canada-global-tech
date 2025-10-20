@@ -13,6 +13,7 @@ import WebsiteProcessProgress from "@/components/Software-engineering/website-de
 import WebFAQ from "@/components/Software-engineering/web-development/WebFAQ";
 import ReusableServiceTabs from "@/components/ReusableServiceTabs";
 import ContactSection from "@/components/ContactSection";
+import WebsiteServicesTab from "@/components/Software-engineering/website-development/websiteerviceTab";
 
 
 export default function Page() {
