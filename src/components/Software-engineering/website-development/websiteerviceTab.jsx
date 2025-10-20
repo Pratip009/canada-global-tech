@@ -78,11 +78,11 @@ export default function WebsiteServicesTab() {
         <div className="mb-12">
           <p className="text-sm font-mono text-gray-500 mb-2">Our Offerings</p>
           <h2 className="text-4xl md:text-5xl font-bold">
-            Our{" "}
+            Tech-agnostic{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              Bespoke Healthcare Software
+              web development and design
             </span>{" "}
-            Services
+            services
           </h2>
         </div>
 

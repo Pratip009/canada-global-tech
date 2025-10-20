@@ -141,27 +141,27 @@ export default function CaseStudiesSlider() {
       </div>
 
       {/* NAVIGATION BUTTONS */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-8 z-10">
+      <div className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4 sm:gap-6 md:gap-8 z-10">
         <button
           onClick={prevSlide}
-          className="p-4 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-gray-300 hover:bg-indigo-600 hover:text-white transition-all duration-300"
+          className="p-2 sm:p-3 md:p-4 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-gray-300 hover:bg-indigo-600 hover:text-white transition-all duration-300"
         >
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
         <button
           onClick={nextSlide}
-          className="p-4 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-gray-300 hover:bg-indigo-600 hover:text-white transition-all duration-300"
+          className="p-2 sm:p-3 md:p-4 rounded-full bg-white/80 backdrop-blur-md shadow-md border border-gray-300 hover:bg-indigo-600 hover:text-white transition-all duration-300"
         >
-          <ChevronRight className="w-5 h-5" />
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
       </div>
 
       {/* SLIDE INDICATORS */}
-      <div className="absolute bottom-8 right-12 flex gap-3 z-10">
+      <div className="absolute bottom-4 sm:bottom-6 right-1/2 translate-x-1/2 flex gap-2 sm:gap-3 z-10">
         {slides.map((_, i) => (
           <motion.span
             key={i}
-            className={`block w-3 h-3 rounded-full transition-all ${
+            className={`block w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all ${
               i === current ? "bg-indigo-600 scale-125" : "bg-gray-300"
             }`}
             layout
