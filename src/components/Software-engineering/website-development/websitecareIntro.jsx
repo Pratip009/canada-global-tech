@@ -3,7 +3,7 @@
 import { Star } from "lucide-react";
 
 export default function WebsiteIntro({
-  leftTitle = "Bespoke Web Development Solutions",
+  leftTitle = "Web Development Solutions",
   mainTitle = "Unlock the full",
   highlightText = "potential of your business with our specialized website development services for",
   afterHighlight = "superior functionality, flexibility, and scalability",
@@ -14,7 +14,6 @@ export default function WebsiteIntro({
     "Dated technology and the overwhelming complexity of implementing emerging tech",
   ],
   paragraph1 = "Leveraging a consulting-led methodology, our experts first analyze your core objectives, craft strategic plans, and proactively eliminate risks, transforming insights into functional solutions that power high-performance web development solutions. Based on this solid foundation, we then skillfully blend world-class UI/UX design with forward-thinking development approaches, including responsive web design, to drive ongoing success. Whether it be simple informative websites, eCommerce solutions, or SaaS platforms, we take pride in continually innovating and building solutions centered around your short and long-term objectives.",
-
 }) {
   return (
     <section className="relative overflow-hidden bg-white text-gray-900 py-24 px-6 md:px-12 lg:px-20">
@@ -71,7 +70,6 @@ export default function WebsiteIntro({
           {/* Paragraphs */}
           <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
             <p>{paragraph1}</p>
-           
           </div>
         </div>
       </div>

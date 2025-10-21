@@ -19,7 +19,7 @@ export default function Home() {
       <CardSlider />
       <CaseStudiesSlider />
       <TechnologyCapabilities />
-      <ClientsTestimonials />
+      {/* <ClientsTestimonials /> */}
       <DigitalChangeCTA />
       <IndustryShowcase />
       <ContactSection/>

@@ -25,8 +25,8 @@ export default function AboutPage() {
       <VisionMissionSection />
       <CoreValuesSection />
       <WhatWeDoSection />
-      <ClienteleSlider />
-      <TestimonialSlider />
+      {/* <ClienteleSlider />
+      <TestimonialSlider /> */}
       <JoinOurTeam />
     </main>
   );

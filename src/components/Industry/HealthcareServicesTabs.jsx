@@ -79,7 +79,7 @@ export default function HealthcareServicesTabs() {
           <h2 className="text-4xl md:text-5xl font-bold">
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              Bespoke Healthcare Software
+              Healthcare Software
             </span>{" "}
             Services
           </h2>

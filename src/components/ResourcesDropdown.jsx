@@ -7,7 +7,7 @@ import { useEffect } from "react";
 export default function ResourcesDropdown({ isOpen, isMobile = false, onClose }) {
   const resourcesLinks = [
     { name: "Blogs", href: "/resources/blogs" },
-    { name: "UI/UX Gallery", href: "/resources/ui-ux-gallery" },
+    // { name: "UI/UX Gallery", href: "/resources/ui-ux-gallery" },
   ];
 
   // 🧩 Reset behavior when dropdown opens/closes

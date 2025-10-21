@@ -36,7 +36,7 @@ Web Design/Development: Optimizes user experience for better engagement.
 Analytics and Reporting: Tracks performance using tools like Google Analytics.
 `,
   },
-   {
+  {
     question: "How Does SEO Improve My Website’s Visibility?",
     answer: `Optimizes content with relevant keywords to rank higher on search engines.
 Improves site structure and speed for better user experience.
@@ -46,7 +46,7 @@ Ensures mobile-friendliness to align with search engine algorithms.
 Uses analytics to refine strategies and maintain rankings.
 `,
   },
-   {
+  {
     question: "What is the Role of Social Media in Digital Marketing?",
     answer: `Builds brand awareness through targeted content and ads.
 Engages audiences with interactive posts, stories, and live sessions.
@@ -56,7 +56,7 @@ Supports influencer collaborations to expand reach.
 Provides analytics to measure engagement and refine campaigns.
 `,
   },
-   {
+  {
     question: "How Can Content Marketing Benefit My Brand?",
     answer: `Establishes brand authority with valuable, relevant content.
 Boosts SEO through keyword-rich blogs, videos, and infographics.
@@ -66,7 +66,7 @@ Encourages sharing, expanding organic reach.
 Builds trust, fostering long-term customer loyalty.
 `,
   },
-   {
+  {
     question: "What is Pay-Per-Click (PPC) Advertising and How Does It Work?",
     answer: `Paid advertising model where advertisers pay per ad click.
 Platforms like Google Ads or social media host PPC campaigns.
@@ -76,7 +76,7 @@ Budgets are set with bids for ad placements.
 Analytics track clicks, conversions, and ROI for optimization.
 `,
   },
-   {
+  {
     question: "How Do I Measure the Success of a Digital Marketing Campaign?",
     answer: `Key Performance Indicators (KPIs): Track metrics like traffic, conversions, and ROI.
 Website Analytics: Use tools like Google Analytics for visitor behavior.
@@ -86,7 +86,6 @@ Cost Per Acquisition (CPA): Evaluate cost efficiency of gaining customers.
 Return on Ad Spend (ROAS): Assess revenue generated from ads.
 `,
   },
-
 ];
 const websiteServices = [
   {
@@ -122,8 +121,7 @@ We leverage platforms like Facebook, Instagram, LinkedIn, and Twitter to build b
   },
   {
     title: "Content Marketing",
-    heading:
-      "Establish thought leadership with a powerful content strategy.",
+    heading: "Establish thought leadership with a powerful content strategy.",
     description: `Increase brand authority and engage your audience by working with a content marketing agency that delivers impactful narratives.
 
 Focusing on the tenets of storytelling, SEO-driven content, and strategic distribution, we craft content that educates, informs, and converts.
@@ -133,7 +131,8 @@ We develop and distribute valuable, relevant, and engaging content tailored to y
   },
   {
     title: "Email Marketing Services",
-    heading: "Turn leads into loyal customers with personalized email marketing.",
+    heading:
+      "Turn leads into loyal customers with personalized email marketing.",
     description: `Strengthen customer relationships and increase conversions by partnering with a data-driven email marketing agency.
 
 Focusing on the tenets of personalization, automation, and audience segmentation, we craft email campaigns that deliver the right message at the right time.
@@ -143,8 +142,7 @@ We create and optimize targeted email campaigns that nurture leads, promote your
   },
   {
     title: "(CRO) Conversion Rate Optimization Services",
-    heading:
-      "Maximize conversions with strategic CRO implementations.",
+    heading: "Maximize conversions with strategic CRO implementations.",
     description: `Enhance website performance and increase conversion rates by collaborating with a conversion-focused digital marketing agency.
 
 Focusing on the tenets of user behavior analysis, A/B testing, and UX optimization, we identify bottlenecks and refine the customer journey to increase sales and lead generation.
@@ -167,7 +165,7 @@ your business dominate the digital landscape and drive revenue growth."
       />
       <ClientsMarquee />
       <WebsiteIntro
-        leftTitle="Bespoke Digital Marketing Solutions"
+        leftTitle="Digital Marketing Solutions"
         mainTitle="Maximize Your Brand’s Potential with "
         highlightText="Revenue-focused Digital Marketing Strategies "
         afterHighlight="in Canada"

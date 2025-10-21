@@ -9,16 +9,7 @@ const bebas = Bebas_Neue({
   subsets: ["latin"],
 });
 
-const logos = [
-  "/badges/accuretebusiness.png",
-  "/badges/certified.svg",
-  "/badges/clutch.svg",
-  "/badges/global.webp",
-  "/badges/great.webp",
-  "/badges/inc.png",
-  "/badges/nascom.png",
-  "/badges/top.webp",
-];
+
 
 const WhoWeAre = () => {
   return (
@@ -64,29 +55,7 @@ const WhoWeAre = () => {
             <div className="absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-white to-transparent z-10" />
             <div className="absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
-            <div className="flex whitespace-nowrap animate-marquee group-hover:[animation-play-state:paused]">
-              {[...Array(2)].map((_, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-10 sm:gap-20 px-4 sm:px-6 py-3 sm:py-5"
-                >
-                  {logos.map((logo, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center justify-center w-20 sm:w-28 md:w-32 h-12 sm:h-16 md:h-20 transition-transform hover:scale-110 duration-300"
-                    >
-                      <Image
-                        src={logo}
-                        alt={`Client logo ${idx + 1}`}
-                        width={100}
-                        height={60}
-                        className="object-contain drop-shadow-sm"
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+            
           </div>
         </div>
 

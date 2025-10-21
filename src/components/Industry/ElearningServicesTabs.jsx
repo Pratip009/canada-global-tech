@@ -12,8 +12,7 @@ export default function ElearningServicesTabs() {
   const services = [
     {
       title: "Education Software Consulting",
-      heading:
-        "Bespoke eLearning consulting to simplify eLearning app development",
+      heading: "eLearning consulting to simplify eLearning app development",
       description:
         "Our process begins with a thorough evaluation of your needs, goals, and competitor research. These inputs will help us formulate a strategic plan and roadmap for your eLearning software development. Integrating large language models in education platforms helps align your business goals with the expectations of your target audience. Whether you need cohort learning platforms, corporate training systems, gamification software, or an LMS for a University and its students",
       image: "/industry/services.webp",
@@ -79,7 +78,7 @@ export default function ElearningServicesTabs() {
           <h2 className="text-4xl md:text-5xl font-bold">
             Our{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              Bespoke Healthcare Software
+              Healthcare Software
             </span>{" "}
             Services
           </h2>
