@@ -42,13 +42,13 @@ export default function ProjectCommunicationStructure() {
     <section className="px-6 md:px-12 py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Title */}
       <div className="text-center mb-20">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight font-[roboto]">
+        <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight font-[poppins]">
           Project Communication
         </h2>
-        <h3 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-400 to-teal-500 bg-clip-text text-transparent mt-1 font-[roboto]">
+        <h3 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-400 to-teal-500 bg-clip-text text-transparent mt-1 font-[poppins]">
           Structure
         </h3>
-        <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-[roboto]">
+        <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto font-[poppins]">
           A well-defined communication structure ensures clarity, transparency,
           and seamless collaboration across teams.
         </p>
@@ -64,11 +64,7 @@ export default function ProjectCommunicationStructure() {
             onMouseLeave={() => setHoveredIndex(null)}
             animate={{
               flex:
-                hoveredIndex === null
-                  ? 1
-                  : hoveredIndex === index
-                  ? 1.7
-                  : 0.6,
+                hoveredIndex === null ? 1 : hoveredIndex === index ? 1.7 : 0.6,
             }}
             transition={{ type: "spring", stiffness: 100, damping: 22 }}
           >
@@ -111,7 +107,7 @@ export default function ProjectCommunicationStructure() {
 
             {/* Title */}
             <div
-              className={`mt-6 text-xl md:text-2xl font-semibold text-center tracking-tight transition-all duration-300 font-[roboto] ${
+              className={`mt-6 text-xl md:text-2xl font-semibold text-center tracking-tight transition-all duration-300 font-[poppins] ${
                 hoveredIndex === index
                   ? "text-gray-900 scale-105"
                   : "text-gray-600"
@@ -128,7 +124,7 @@ export default function ProjectCommunicationStructure() {
                 y: hoveredIndex === index ? 0 : 10,
               }}
               transition={{ duration: 0.5 }}
-              className="text-center text-gray-700 mt-3 max-w-sm mx-auto leading-relaxed font-[roboto] overflow-hidden"
+              className="text-center text-gray-700 mt-3 max-w-sm mx-auto leading-relaxed font-[poppins] overflow-hidden"
               style={{
                 height: hoveredIndex === index ? "80px" : "0px", // 👈 fixed space
               }}

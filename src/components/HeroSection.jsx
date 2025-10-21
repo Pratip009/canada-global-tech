@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen bg-gray-900 text-white flex items-center justify-center px-6 sm:px-20 overflow-hidden">
-      {/* Background Image - visible only on mobile */}
+      {/* ✅ Background Image - visible only on mobile */}
       <div className="absolute inset-0 md:hidden z-0">
         <Image
           src="/banner.webp"
@@ -14,8 +14,8 @@ export default function HeroSection() {
           className="object-cover brightness-110 saturate-125"
           priority
         />
-        {/* Slightly lighter overlay for text contrast */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* ✅ Stronger black overlay mask with gradient for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/90" />
       </div>
 
       {/* Hero Container */}
@@ -35,10 +35,10 @@ export default function HeroSection() {
             your complex business challenges, ensuring long-term success.
           </p>
 
-          {/* Animated Gradient Button */}
+          {/* Animated Gradient Button - Smaller on desktop */}
           <a
-            href="/get-started"
-            className="inline-block w-2/3 md:w-auto mx-auto md:mx-0 mt-4 px-6 py-3 text-sm font-semibold rounded-full bg-gradient-to-r from-yellow-400 via-teal-400 to-yellow-400 bg-[length:200%_200%] bg-left animate-gradient-x text-gray-900 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl text-center"
+            href="/contact"
+            className="inline-block mx-auto md:mx-0 mt-4 text-sm sm:text-base font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-teal-400 to-yellow-400 hover:opacity-80 transition-opacity whitespace-nowrap"
           >
             Get Started →
           </a>
@@ -97,7 +97,7 @@ export default function HeroSection() {
         }
 
         .animate-bounce-slow {
-          animation: bounce 4s infinite ease-in-out
+          animation: bounce 4s infinite ease-in-out;
         }
       `}</style>
     </section>

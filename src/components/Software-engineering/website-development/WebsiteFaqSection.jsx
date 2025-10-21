@@ -6,20 +6,34 @@ import { Plus, Minus } from "lucide-react";
 const faqs = [
   { question: "What types of services fall under web development?" },
   { question: "Should I outsource or hire in-house for web development?" },
-  { question: "Why should I choose Unified Infotech over other web development agencies?" },
+  {
+    question:
+      "Why should I choose Canada Global Tech over other web development agencies?",
+  },
   { question: "How is the web development team structured?" },
-  { question: "How can I benefit from using your ecommerce web development services?" },
+  {
+    question:
+      "How can I benefit from using your ecommerce web development services?",
+  },
   { question: "How much does it cost to develop a website?" },
   { question: "How can I calculate website development costs?" },
   { question: "What is the average cost of designing a website?" },
   { question: "What is the typical cost for a website revamp?" },
-  { question: "What key steps should be followed to ensure a successful website revamp project?" },
-  { question: "When is the Right Time for a Website Redesign, and How Often Should it Be Done?" },
+  {
+    question:
+      "What key steps should be followed to ensure a successful website revamp project?",
+  },
+  {
+    question:
+      "When is the Right Time for a Website Redesign, and How Often Should it Be Done?",
+  },
   { question: "How long does a website revamp take?" },
   { question: "Do you provide SEO optimization as part of web development?" },
-  { question: "What are the advantages of investing in a custom website development solution for my business?" },
+  {
+    question:
+      "What are the advantages of investing in a custom website development solution for my business?",
+  },
 ];
-
 
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -58,13 +72,15 @@ export default function FAQSection() {
 
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? "max-h-40 mt-4 opacity-100" : "max-h-0 opacity-0"
+                  openIndex === index
+                    ? "max-h-40 mt-4 opacity-100"
+                    : "max-h-0 opacity-0"
                 }`}
               >
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  We provide tailored web development solutions aligned with your business goals. 
-Contact our team for detailed project estimates and implementation timelines.
-
+                  We provide tailored web development solutions aligned with
+                  your business goals. Contact our team for detailed project
+                  estimates and implementation timelines.
                 </p>
               </div>
             </div>

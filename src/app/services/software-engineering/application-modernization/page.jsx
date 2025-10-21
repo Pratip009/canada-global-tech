@@ -32,9 +32,8 @@ const webFAQs = [
   {
     question: "How can I ensure ongoing security after deployment?",
     answer:
-      "Modernization of legacy applications can help address security loopholes by proactively implementing robust cybersecurity measures. For example, we at Unified Infotech prioritize security by implementing certain critical measures like secure design principles, frequent security updates, industry best practices etc. Hence, there is no doubt that opting for app re-engineering will help correct your cybersecurity posture and enable you to predict and tackle upcoming cyberthreats proactively.",
+      "Modernization of legacy applications can help address security loopholes by proactively implementing robust cybersecurity measures. For example, we at Canada Global Tech prioritize security by implementing certain critical measures like secure design principles, frequent security updates, industry best practices etc. Hence, there is no doubt that opting for app re-engineering will help correct your cybersecurity posture and enable you to predict and tackle upcoming cyberthreats proactively.",
   },
-  
 ];
 
 const websiteServices = [
@@ -135,7 +134,7 @@ At Unified, we adopt a conscious, value-driven approach, complemented by a compr
         faqs={webFAQs}
         containerClass="bg-gray-50"
       />
-      <ContactSection/>
+      <ContactSection />
     </main>
   );
 }

@@ -16,7 +16,7 @@ import ContactSection from "@/components/ContactSection";
 const webFAQs = [
   {
     question:
-      "Why should I choose Unified Infotech for my custom software development project? ",
+      "Why should I choose Canada Global Tech for my custom software development project? ",
     answer:
       "a trusted digital transformation partner, specializes in tech-agnostic custom solutions tailored to your unique business needs, making us the ideal choice for your custom software development project. Our customer-first approach prioritizes your goals, ensuring that everything we develop aligns with your vision and business requirements. Our team’s proficiency in a wide range of technologies ensures tech-agnostic outcomes and guarantees the best tools are selected for your project. With a proven track record of successful projects across multiple verticals and industries, we bring reliability and expertise to the table while maximizing cost savings.",
   },
@@ -218,7 +218,7 @@ From startups to enterprises, our custom software development team in the US del
         faqs={webFAQs}
         containerClass="bg-gray-50"
       />
-      <ContactSection/>
+      <ContactSection />
     </main>
   );
 }

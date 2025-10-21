@@ -22,13 +22,13 @@ const webFAQs = [
   {
     question: "How QA testing company help my business?",
     answer:
-      "Choosing a software testing and quality assurance company like Unified Infotech is important because it allows you to implement the QA and test processes properly. Further analyzing your software provides them with insights. They utilize these insights to select the right testing processes and tools, thereby improving the precision and accuracy of quality assurance and software testing.",
+      "Choosing a software testing and quality assurance company like Canada Global Tech is important because it allows you to implement the QA and test processes properly. Further analyzing your software provides them with insights. They utilize these insights to select the right testing processes and tools, thereby improving the precision and accuracy of quality assurance and software testing.",
   },
-  
+
   {
     question: "What are cross platform mobile app testing services?",
     answer:
-      "Custom mobile app development is not restricted to a single platform. Hence, all apps must be tested to ensure their performance and user-friendliness across all platforms. Companies like Unified Infotech offer cross-platform mobile app development services to ensure that your app delivers on its promise of user satisfaction.",
+      "Custom mobile app development is not restricted to a single platform. Hence, all apps must be tested to ensure their performance and user-friendliness across all platforms. Companies like Canada Global Tech offer cross-platform mobile app development services to ensure that your app delivers on its promise of user satisfaction.",
   },
 ];
 
@@ -133,7 +133,7 @@ Our quality assurance analysts will ensure that no technical glitches impact bus
         faqs={webFAQs}
         containerClass="bg-gray-50"
       />
-      <ContactSection/>
+      <ContactSection />
     </main>
   );
 }

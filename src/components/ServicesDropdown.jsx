@@ -48,7 +48,7 @@ export default function ServicesDropdown({ isOpen, onClose }) {
     {
       name: "Digital Strategy",
       color: "from-purple-400 via-violet-500 to-indigo-500",
-      subItems: ["Digital Marketing", "SEO Marketing Services"],
+      subItems: ["Digital Marketing"],
     },
   ];
 

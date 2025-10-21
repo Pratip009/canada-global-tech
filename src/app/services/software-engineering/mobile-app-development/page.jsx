@@ -25,7 +25,7 @@ const webFAQs = [
   {
     question: "What solutions are provided by mobile app development services?",
     answer:
-      "There are many different types of services that can be included in mobile app development. However, at Unified Infotech, we offer a comprehensive suite of services that involves iOS and Android App Development, Hybrid App Solutions, Enterprise Mobility Solutions, and Mobile App Modernisation.",
+      "There are many different types of services that can be included in mobile app development. However, at Canada Global Tech, we offer a comprehensive suite of services that involves iOS and Android App Development, Hybrid App Solutions, Enterprise Mobility Solutions, and Mobile App Modernisation.",
   },
   {
     question:
@@ -142,7 +142,7 @@ Our skilled mobile app developers are equipped to develop apps across multiple p
         faqs={webFAQs}
         containerClass="bg-gray-50"
       />
-      <ContactSection/>
+      <ContactSection />
     </main>
   );
 }

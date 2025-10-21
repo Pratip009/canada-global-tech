@@ -5,13 +5,12 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import TopHeader from "@/components/TopHeader";
 import ScrollToTopButton from "@/components/ScrollToTopButton"; // ✅ new import
-import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 import { usePathname } from "next/navigation";
 
-const roboto = Roboto({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
-  variable: true,
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export default function RootLayout({ children }) {
@@ -20,7 +19,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={`${roboto.className} bg-gray-50`}>
+      <body className={`${poppins.className} bg-gray-50`}>
         <TopHeader />
         <Navbar />
         <main>{children}</main>

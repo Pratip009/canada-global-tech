@@ -14,7 +14,7 @@ export default function IndustryHero({
   gradientTo = "#facc15",
 }) {
   return (
-    <section className="relative w-full text-white py-28 overflow-hidden">
+    <section className="relative w-full text-white py-40 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -24,7 +24,7 @@ export default function IndustryHero({
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
       {/* Content */}
@@ -35,8 +35,7 @@ export default function IndustryHero({
             <p className="text-sm text-gray-300 mb-3">{smallHeader}</p>
           )}
 
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-6">
-            
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-[1.15] mb-6 w-[90%] md:w-[70%]">
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -49,7 +48,7 @@ export default function IndustryHero({
           </h1>
 
           {description && (
-            <p className="text-gray-300 text-lg max-w-2xl mb-10">
+            <p className="text-gray-300 text-lg w-[90%] md:w-[70%] mb-10">
               {description}
             </p>
           )}
