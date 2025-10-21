@@ -93,33 +93,35 @@ export default function Footer() {
       </div>
 
       {/* ✅ Contact & Social */}
-      <div className="max-w-7xl mx-auto px-6 mt-12 border-t border-gray-700 pt-8 grid md:grid-cols-3 gap-6 text-sm">
+      <div className="max-w-7xl mx-auto px-6 mt-12 border-t border-gray-700 pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm text-gray-300">
         <div>
-          <h3 className="text-white font-bold">CANADA</h3>
-          <p>
-            3465 Platinum Dr Unit 93 Unit 93 , Mississauga , ON L5M 7N4 , Canada
-          </p>
-          <p>-5513441485</p>
+          <h3 className="text-white font-bold mb-2">Address</h3>
+          <p>3465 Platinum Dr Unit 93, Mississauga, ON L5M 7N4, Canada</p>
         </div>
 
         <div>
-          <h3 className="text-white font-bold">Mail us at</h3>
+          <h3 className="text-white font-bold mb-2">Email Address</h3>
           <p>Info@gts-ca.com</p>
         </div>
 
         <div>
-          <h3 className="text-white font-bold">Get Connected</h3>
-          <div className="flex space-x-4 mt-2">
-            <a href="#" className="hover:text-white transition">
+          <h3 className="text-white font-bold mb-2">Contact Number</h3>
+          <p>+1 (551) 344-1485</p>
+        </div>
+
+        <div>
+          <h3 className="text-white font-bold mb-2">Get Connected</h3>
+          <div className="flex flex-wrap gap-4 mt-2">
+            <a href="#" className="hover:text-teal-400 transition">
               LinkedIn
             </a>
-            <a href="#" className="hover:text-white transition">
+            <a href="#" className="hover:text-teal-400 transition">
               X
             </a>
-            <a href="#" className="hover:text-white transition">
+            <a href="#" className="hover:text-teal-400 transition">
               Instagram
             </a>
-            <a href="#" className="hover:text-white transition">
+            <a href="#" className="hover:text-teal-400 transition">
               Facebook
             </a>
           </div>
